@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div id="panneluser" style="float : left;" class="container-fluid col-sm-3">
+		<div class="jumbotron">
+			<h2><center>Bienvenu</center></h2><hr>
+			Nom : <br>
+			Prenom : <br>
+			Age : <br>
+			E-mail : <br>
+			Portable : <br>
+			<hr>
+			<h2><center>Pense bête</center></h2><br>
+			<a href="" style="text-decoration: none;">+ Nouveau</a>
+			
+			<h4>
+			<a href="">
+			<button type="button" class="btn btn-primary">Supprimer</button></a>
+			</h4>
+			
+		</div>
+
+	</div>
+	<div id="pannelreserv" style="float: right;" class="container-fluid col-xs-9">
+		<div class="jumbotron">
+		<center><h1>Récapitulatif de vos réservations</h1></center><br>
+		<table class="table">
+		<tr>
+			<th> Marque </th>
+			<th> Modele </th>
+			<th> Date de reservation </th>
+			<th> Date de debut de location </th>
+			<th> Date de fin de location </th>
+			<th> Rendre le véhicule </th>
+		<tr>
+			
+		</table>
+
+		</div>
+	</div>
+{% endblock %}
