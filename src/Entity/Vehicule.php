@@ -54,6 +54,12 @@ class Vehicule
      */
     private $reservations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="vehicules")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorie;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -162,6 +168,18 @@ class Vehicule
                 $reservation->setVehicule(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
