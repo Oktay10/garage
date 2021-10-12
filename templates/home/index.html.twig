@@ -5,12 +5,11 @@
 {% block body %}
 <div id="panneluser" style="float : left;" class="container-fluid col-sm-3">
 		<div class="jumbotron">
-			<h2><center>Bienvenu</center></h2><hr>
-			Nom : <br>
-			Prenom : <br>
-			Age : <br>
-			E-mail : <br>
-			Portable : <br>
+			<h2><center>Bienvenu {{app.user.nom}} {{app.user.prenom}}</center></h2><hr>
+			Nom : {{app.user.nom}}<br>
+			Prenom : {{app.user.prenom}}<br>
+			E-mail : {{app.user.email}}<br>
+			Portable : {{app.user.telephone}}<br>
 			<hr>
 			<h2><center>Pense bête</center></h2><br>
 			<a href="" style="text-decoration: none;">+ Nouveau</a>

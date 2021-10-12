@@ -16,25 +16,27 @@
 <div class="login">
   <div class="heading">
     <h2>Connexion</h2>
-    <form action="" method="POST">
-
-      <div class="input-group input-group-lg">
-        <span class="input-group-addon"></span>
-        <input type="text" class="form-control" name = "login" placeholder="Login">
-          </div>
-
+    <form method="post">
         <div class="input-group input-group-lg">
-          <span class="input-group-addon"></span>
-          <input type="password" class="form-control" name="mdp" placeholder="Mot de passe">
-        </div>
+            <span class="input-group-addon"></span>
+            <input type="text" class="form-control" name = "email" placeholder="Login">
+            </div>
 
-        <button type="submit" name="valider" class="float">Valider</button>
-        <div class="input-group input-group-lg">
-           <a href="">Inscription</a>
+            <div class="input-group input-group-lg">
+            <span class="input-group-addon"></span>
+            <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+            </div>
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <button type="submit" name="valider" class="float">Valider</button>
+            <div class="input-group input-group-lg">
+            <a href="{{ path('register')}}">Inscription</a>
         </div>
-       </form>
- 		</div>
- </div> 
+    </form>
+  </div>
+</div>
+
 {#
 <form method="post">
     {% if error %}
@@ -71,5 +73,31 @@
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
-</form>#}
+</form>
+
+<div class="login">
+  <div class="heading">
+    <h2>Connexion</h2>
+    <form action="" method="POST">
+
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon"></span>
+        <input type="text" class="form-control" name = "email" placeholder="Login">
+          </div>
+
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon"></span>
+          <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+        </div>
+
+        <button type="submit" name="valider" class="float">Valider</button>
+        <div class="input-group input-group-lg">
+           <a href="">Inscription</a>
+        </div>
+       </form>
+ 		</div>
+ </div> 
+
+
+#}
 {% endblock %}
