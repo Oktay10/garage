@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center>
+	<div class="container-fluid col-xs-6 col-xs-offset-3">
+		<div class="jumbotron">
+		    <h2>Réservation du véhicules</h2><hr><br>		    
+		    <form action="{{ path('reservation', {id: car.id})}}" class="form-horizontal" method=POST>
+
+		    	<div class="form-group">
+                        <label class="col-md-3 control-label">Date de début</label>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input name="dateD" type="date" class="form-control">
+                            	<span class="input-group-addon">
+                               		<span class="glyphicon glyphicon-calendar"></span>
+                            	</span>
+                        	</div>
+                        <span class="help-block">Selectionner une date valable</span>
+                        </div>
+                </div>
+
+                <br/>
+
+                <div class="form-group">
+                        <label class="col-md-3 control-label">Date de fin</label>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input name="dateF" type="date" class="form-control">
+                            	<span class="input-group-addon">
+                               		<span class="glyphicon glyphicon-calendar"></span>
+                            	</span>
+                        	</div>
+                        <span class="help-block">Selectionner une date valable</span>
+                        </div>
+                </div>                                 			
+
+				 <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <center>
+				      	<button type="submit" name ="continuer" class="btn btn-default">
+				      		Valider
+				      	</button>
+				      </center>
+				    </div>
+				  </div>
+		    </form>
+		</div>
+	</div>
+ </center>
+
+{% endblock %}

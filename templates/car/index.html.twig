@@ -5,16 +5,15 @@
 {% block body %}
 
 {% for theCar in car %}
-    <div class="col-lg-4 all web">
-        <div class="card">
-            <div class="card-head">
+    <div class="col-lg-4">
+        <div class="card" style="border: solid; text-align: center; color: #fff;">
             <a href="{{ path('car_show', {id: theCar.id})}}">
                 <div class="header">
                     <h2>{{theCar.marque}}</h2>
                     <p>{{theCar.modele}}</p>
                 </div>
+                <a href="{{ path('formReservation', {id: theCar.id}) }}">Réserver</a>
             </a>
-            </div>
         </div>
     </div>
 {% endfor %}

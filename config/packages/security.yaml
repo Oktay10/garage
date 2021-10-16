@@ -36,5 +36,6 @@ security:
     access_control:
         - { path: /home, roles: ROLE_USER }
         - { path: /car, roles: ROLE_USER }
+        - { path: /formReservation, roles: ROLE_USER }
 
         # - { path: ^/profile, roles: ROLE_USER }
