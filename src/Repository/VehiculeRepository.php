@@ -39,7 +39,6 @@ class VehiculeRepository extends ServiceEntityRepository
     
     public function searchCar($critere)
     {
-        //dd($critere);
         return $this->createQueryBuilder('v')
             ->andWhere('v.marque = :marque')
             ->setParameter('marque', $critere->getMarque())
@@ -49,6 +48,12 @@ class VehiculeRepository extends ServiceEntityRepository
             ->setParameter('typeVehicule', $critere->getTypeVehicule())
             ->andWhere('v.categorie = :categorie')
             ->setParameter('categorie', $critere->getCategorie())
+            ->andWhere('v.city = :city')
+            ->setParameter('city', $critere->getCity())
+            ->andWhere('v.color = :color')
+            ->setParameter('color', $critere->getColor())
+            ->andWhere('v.prix >= :prix')
+            ->setParameter('prix', $critere->getPrix())
             ->andWhere('v.estDispo = :estDispo')
             ->setParameter('estDispo', 0)
             ->getQuery()

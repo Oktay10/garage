@@ -26,6 +26,7 @@ class CarController extends AbstractController
             $critere = $form->getData();
             //dd($critere);
             $cars = $carRepository->searchCar($critere);
+            //dd($cars);
 
         }
         //dd($car);
