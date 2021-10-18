@@ -36,15 +36,23 @@ class VehiculeRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Vehicule
+    
+    public function searchCar($critere)
     {
+        //dd($critere);
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('v.marque = :marque')
+            ->setParameter('marque', $critere->getMarque())
+            ->andWhere('v.modele = :modele')
+            ->setParameter('modele', $critere->getModele())
+            ->andWhere('v.typeVehicule = :typeVehicule')
+            ->setParameter('typeVehicule', $critere->getTypeVehicule())
+            ->andWhere('v.categorie = :categorie')
+            ->setParameter('categorie', $critere->getCategorie())
+            ->andWhere('v.estDispo = :estDispo')
+            ->setParameter('estDispo', 0)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getResult();
     }
-    */
+    
 }
