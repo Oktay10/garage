@@ -65,6 +65,17 @@ class Vehicule
      */
     private $color;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=City::class, inversedBy="vehicules")
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $prix;
+
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -197,6 +208,30 @@ class Vehicule
     public function setColor(string $color): self
     {
         $this->color = $color;
+
+        return $this;
+    }
+
+    public function getCity(): ?City
+    {
+        return $this->city;
+    }
+
+    public function setCity(?City $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }
