@@ -60,6 +60,11 @@ class Vehicule
      */
     private $categorie;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $color;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -180,6 +185,18 @@ class Vehicule
     public function setCategorie(?Categorie $categorie): self
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color): self
+    {
+        $this->color = $color;
 
         return $this;
     }

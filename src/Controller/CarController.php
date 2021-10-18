@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Vehicule;
+use App\Form\VehiculeType;
+use App\Repository\VehiculeRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,13 +15,23 @@ class CarController extends AbstractController
     /**
      * @Route("/car", name="car")
      */
-    public function index(): Response
+    public function index(Request $request, VehiculeRepository $carRepository): Response
     {
-        $car = $this->getDoctrine()->getRepository(Vehicule::class)->findBy(["estDispo" => 0]);
+        $cars = [];
+        $cars = $this->getDoctrine()->getRepository(Vehicule::class)->findBy(["estDispo" => 0]);
 
+        $voiture = new Vehicule();
+        $form = $this->createForm(VehiculeType::class, $voiture);
+        if($form->handleRequest($request)->isSubmitted() && $form->isValid()){
+            $critere = $form->getData();
+            //dd($critere);
+            $cars = $carRepository->searchCar($critere);
+
+        }
         //dd($car);
         return $this->render('car/index.html.twig', [
-            'car' => $car
+            'form' => $form->createView(),
+            'cars' => $cars
         ]);
     }
 
